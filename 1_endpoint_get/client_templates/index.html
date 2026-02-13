@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Flask</title>
+</head>
+<body>
+    <h1>Test Client per API Flask</h1>
+    
+    <!-- Sezione per testare la root -->
+    <div>
+        <h2>Test Root Endpoint</h2>
+        <button onclick="fetchRoot()">Chiama /</button>
+        <p>Risultato:</p>
+        <p id="rootResult">Nessun dato ancora...</p>
+    </div>
+
+    <hr>
+
+    <!-- Sezione per testare l'endpoint JSON -->
+    <div>
+        <h2>Test JSON Endpoint</h2>
+        <button onclick="fetchJson()">Chiama /api/saluto</button>
+        <p>Risultato:</p>
+        <pre id="jsonResult">Nessun dato ancora...</pre>
+    </div>
+
+    <script>
+        // Funzione per chiamare l'endpoint root che restituisce testo semplice
+        function fetchRoot() {
+            fetch('/')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('rootResult').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    document.getElementById('rootResult').innerText = 'Errore nella richiesta';
+                });
+        }
+
+        // Funzione per chiamare l'endpoint JSON
+        function fetchJson() {
+            fetch('/api/saluto')
+                .then(response => response.json())
+                .then(data => {
+                    // Formattiamo il JSON per renderlo leggibile
+                    document.getElementById('jsonResult').innerText = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    document.getElementById('jsonResult').innerText = 'Errore nella richiesta';
+                });
+        }
+    </script>
+</body>
+</html>
