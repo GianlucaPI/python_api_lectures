@@ -89,6 +89,8 @@ Alla fine dell'esercitazione sarai in grado di:
    - `https://v2.jokeapi.dev/joke/Any?lang=it&type=single`
 3. Stampa entrambe come "intrattenimento di viaggio"
 
+**Suggerimento:** la lingua italiana non esiste. Il parametro `lang=it` non funziona, ma puoi comunque ottenere una barzelletta in inglese e stamparla così com'è.
+
 ---
 
 ### Fase 6 — La scheda finale (20 min)
